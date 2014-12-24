@@ -95,3 +95,15 @@ trait IntSet{
   def contains(x: Int): Boolean
 }
 ```
+### Covariant subtyping. 
+In the example below, if *T* is a subtype of type *S*, that implies that **Stack[S]** is a subtype of **Stack[T]**.
+```scala
+class Stack[+A]{
+}
+```
+### Contra-variant subtyping. 
+In the example below, if *T* is a subtype of type *S*, that implies that **Stack[T]** is a subtype of **Stack[S]**.
+```scala
+class Stack[-A]{
+}
+```

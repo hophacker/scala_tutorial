@@ -19,3 +19,8 @@ In order to use a generalized class, one declares a variable like this:
 ```scala
 val cell = new Reference[Int]
 ```
+
+Upper bounds and Lower bounds
+----------------------------
+**Upper bounds**: In a type parameter declaration such as **T <: U** , the type parameter *T* is restricted to range only over subtypes of type *U*.  
+**Lower bounds**: Symmetrical to this are lower bounds in Scala. In a type parameter declaration **T >: S** , the type parameter *T* is restricted to range only over supertypes of type *S*.

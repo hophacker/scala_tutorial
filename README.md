@@ -11,42 +11,58 @@ Copy&Paste from the above resourcess is unavoidable simpy because I want to reme
 Howerver, if there's any issue, don't hesitate to shoot me an email: jiefeng.hopkins@gmail.com 
 
 
-Compiling
+Compile
 ---------
 `scala -classpath .   Filename.scala`
+
+Run
+---
+#### Run as shell script
+```scala
+#!/bin/sh
+exec scala "$0" "$@"
+!#
+//scala program goes here
+```
+[EXAMPLE](./examples/using-arguments.scala)
+
+
+Examples
+--------
+
 
 Terms
 -----
 `() => Unit` is the type of all functions which take no arguments and return nothing
 
-#### Class comparison and conversion
+##### Class comparison and conversion
 
 * *Comparison*: `object.isInstanceOf[class]`
 * *Conversion*: `= object.asInstanceOf[class]`
 
-####  Call-by-value evaluation by using `=>`
+#####  Call-by-value evaluation by using `=>`
 ```scala
 def constOne(x: Int, y: => Int) = 1
 ```
 
-#### Tail calls
+##### Tail calls
 If the last action of a function is a call to another (possibly the same) function, only a single stack frame is needed for both functions. Such calls are called *tail calls*.
 
-#### Higher-order function
+##### Higher-order function
 Functions which take other functions as parameters or return them as results as results are called *higher-order* functions. Examples:
 ```scala
 def sum(f: Int => Int, a: Int, b: Int): Int =
   if (a > b) 0 else f(a) + sum(f, a + 1, b)
 ```
 
-#### Anonymous functions
+##### Anonymous functions
 An anonymous function is an expression that evaluates to a function; the function is defined without giving it a name. Examples:
 ```scala
 (x: Int) => x * x
 (x: Int, y: Int) => x * y
 ```
 
-#### Currying
+##### Currying
 A curried function definition looks like: `def f (args_1) ... (args_n) = E`. Examples:
 ```scala
 def sum(f: Int => Int)(a: Int, b: Int): Int =
@@ -74,7 +90,7 @@ sumSquares(1, 100)
 sum(x => x*x)(1,100)
 ```
 
-#### Abstract class
+##### Abstract class
 ```scala
 abstract class IntSet{
   def incl(x: Int): IntSet
@@ -86,7 +102,7 @@ Two good points:
 * *deferred* members which are declared but which do not have an implementation
 * Since an abstract class might have unimplemented members, no objects of that class may be created using **new**
 
-#### Traits
+##### Traits
 Traits are just like abstract classes expect that they are meant to be added to some other classes.
 Example:
 ```scala
@@ -95,13 +111,13 @@ trait IntSet{
   def contains(x: Int): Boolean
 }
 ```
-### Covariant subtyping. 
+#### Covariant subtyping. 
 In the example below, if *T* is a subtype of type *S*, that implies that **Stack[S]** is a subtype of **Stack[T]**.
 ```scala
 class Stack[+A]{
 }
 ```
-### Contra-variant subtyping. 
+#### Contra-variant subtyping. 
 In the example below, if *T* is a subtype of type *S*, that implies that **Stack[T]** is a subtype of **Stack[S]**.
 ```scala
 class Stack[-A]{

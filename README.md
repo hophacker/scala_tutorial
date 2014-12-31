@@ -1,4 +1,4 @@
-﻿Scala traning for me and for you
+﻿Scala tutorial
 ================================
 This repository services as a cheat sheet of scala and contains my learning experience from the following resources:
 * [Scala By Example](http://www.scala-lang.org/docu/files/ScalaByExample.pdf) by Martin Odersky

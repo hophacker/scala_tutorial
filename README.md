@@ -105,24 +105,36 @@ Two good points:
 #### Traits V.S. Java interfaces
 Traits are just like Java's interfaces expect that all methods in Java interfaces are by definition abstract while methods in scala traits can have real bodies.
 
+Another significant difference between Java's interfaces and Scala's traits is that you can mix in traits when instantiating scala trait. [Example](traits/Motivative.scala):
+```scala
+trait Motivative{
+  def create() = "Do some stuff "
+}
+trait Creative extends Motivative{
+  override def create() = super.create() + "new!"
+}
+class Human extends Motivative{
+  def greet() = println("Hello world!")
+}
+class Entrepreneur extends Human{
+}
+val elon = new Entrepreneur with Creative
+println(elon.create()) // will print "Do some stuff new!"
+```
 
 * Example1:
-
 ```scala
 trait IntSet{
   def incl(x: Int): IntSet
   def contains(x: Int): Boolean
 }
 ```
-
 * Example2:
-
 ```scala
 trait Friendly {
   def greet() = "Hi"
 }
 ```
-
 Like Java interfaces, Traits can **extend** zero to many traits. Example:
 ```scala
 class Animal extends Friendly{
@@ -195,3 +207,4 @@ println(universityName(2))
 * A *singleton object* can share the same name with a class, and when it does, the singleton is called the class’s **companion object**. It is called a **stand-alone** object if it is not a *companion object*
 * A *companion object* differs from a *companion object* that it has a few special privileges, such as access to the private members of like-named class.
 * [A comprehensive example](examples/Animal.scala)
+#### [Literals](Literals.md)

@@ -1,5 +1,5 @@
 object AnimalTest{
-  def main(args: Array[String]) = {
+  def main(args: Array[String]) {
     val animal1 = new Animal("Cat")
     val animal2 = new Animal("Bird")
     val animal3 = new Animal("Dog", 12)

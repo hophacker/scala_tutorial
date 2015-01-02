@@ -207,4 +207,5 @@ println(universityName(2))
 * A *singleton object* can share the same name with a class, and when it does, the singleton is called the class’s **companion object**. It is called a **stand-alone** object if it is not a *companion object*
 * A *companion object* differs from a *companion object* that it has a few special privileges, such as access to the private members of like-named class.
 * [A comprehensive example](examples/Animal.scala)
+
 #### [Literals](Literals.md)

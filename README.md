@@ -232,6 +232,34 @@ catch {
 
 * **literal identifier**: an arbitrary string enclosed in back-ticks. One usage: Since *yield* is a reserved word in Scala, one cannot write **Thread.yield()**, instead, **Thread.'yield'()** is OK in this case.
 
-#### Scala shell commands
+#### target typing
+Define `val numbers = List(-2, -1, 0, 1, 12)`, then `numbers.filter((x: Int) => x > 0)` could be written as `numbers.filter(x => x > 0)`. In this case, scala compiler knows *x* must be an integer, since it sees that the function is filtering a list of integers. 
+
+This is called **target typing**.
+
+It can be more concisely written as `numbers.filter(_ > 0)` using _ as placeholder for parameter.
+#### Partially applied functions
+TODO
+
+#### Variable length argument list
+To denote a variable length argument list, place an asterisk after the type of the parameter. Example:
+```scala
+def echo(args: String*) = for (arg <- args) println(arg)
+echo("hello", "scala!") 
+/*output:
+hello
+scala!
+/*
+```
+To print an array of arguments using variable length argument, one needs to append the array argument with a colon and an "_*" symbol. Example:
+```scala
+val arr = Array("hello", "scala!")
+echo(arr: _*)
+//output will be the same as above
+```
+
+
+Scala shell commands
+----
 * **:load**, load a scala file
 * **:replay**, execute all the commands executed so far in scala shell
